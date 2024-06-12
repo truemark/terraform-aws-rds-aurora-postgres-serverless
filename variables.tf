@@ -12,27 +12,27 @@ variable "cluster_tags" {
 
 variable "copy_tags_to_snapshot" {
   description = "Copy all cluster tags to snapshots"
-  default = false
+  default     = false
 }
 
 variable "create_cluster" {
   description = "True if the cluster should be created"
-  default = true
+  default     = true
 }
 
 variable "master_password" {
   description = "Password for the master user. If null, a random one is generated."
-  default = null
+  default     = null
 }
 
 variable "master_username" {
   description = "Username for the master user."
-  default = "root"
+  default     = "root"
 }
 
 variable "store_master_password_as_secret" {
   default = true
-  type = bool
+  type    = bool
 }
 
 variable "master_password_secret_name_prefix" {
@@ -47,8 +47,8 @@ variable "password_secret_tags" {
 
 variable "create_security_group" {
   description = "Whether to create the security group for the RDS cluster"
-  default = true
-  type = bool
+  default     = true
+  type        = bool
 }
 
 variable "security_group_tags" {
@@ -71,19 +71,19 @@ variable "subnets" {
 
 variable "family" {
   description = "The database family"
-  default = "aurora-postgresql10"
+  default     = "aurora-postgresql10"
 }
 
 variable "db_parameter_group_name" {
   description = "Optional aws_db_parameter_group name. Providing this will prevent the creation of the aws_db_parameter_group resource."
-  default = null
+  default     = null
 }
 
 variable "db_parameters" {
   description = "Map of parameters to use in the aws_db_parameter_group resource"
   type = list(object({
-    name = string
-    value = string
+    name         = string
+    value        = string
     apply_method = string
   }))
   default = []
@@ -91,19 +91,19 @@ variable "db_parameters" {
 
 variable "db_parameter_group_tags" {
   description = "A map of tags to add to the aws_db_parameter_group resource if one is created."
-  default = {}
+  default     = {}
 }
 
 variable "rds_cluster_parameter_group_name" {
   description = "Optional aws_rds_cluster_parameter_group name. Providing this will prevent the creation of the aws_rds_cluster_parameter_group resource."
-  default = null
+  default     = null
 }
 
 variable "rds_cluster_parameters" {
   description = "Map of the parameters to use in the aws_rds_cluster_parameter_group resource"
   type = list(object({
-    name = string
-    value = string
+    name         = string
+    value        = string
     apply_method = string
   }))
   default = []
@@ -111,7 +111,7 @@ variable "rds_cluster_parameters" {
 
 variable "rds_cluster_parameter_group_tags" {
   description = "A map of tags to add to the aws_rds_cluster_parameter_group resource if one is created."
-  default =  {}
+  default     = {}
 }
 
 variable "database_name" {
@@ -175,13 +175,13 @@ variable "preferred_maintenance_window" {
 }
 
 variable "deletion_protection" {
-  type = bool
+  type    = bool
   default = false
 }
 
 variable "share" {
   default = false
-  type = bool
+  type    = bool
 }
 
 variable "share_tags" {
@@ -198,41 +198,41 @@ variable "snapshot_identifier" {
 
 variable "kms_key_id" {
   description = "KMS Key used to encrypt RDS instance"
-  type = string
-  default = null
+  type        = string
+  default     = null
 }
 
 variable "auto_pause" {
   description = "Whether to enable automatic pause"
-  type = bool
-  default = true
+  type        = bool
+  default     = true
 }
 
 variable "min_capacity" {
   description = "The minimum capacity for an Aurora DB cluster in serverless DB engine mode."
-  type = number
-  default = 2
+  type        = number
+  default     = 2
 }
 
 variable "max_capacity" {
   description = "The maximum capacity for an Aurora DB cluster in serverless DB engine mode"
-  type = number
-  default = 16
+  type        = number
+  default     = 16
 }
 
 variable "seconds_until_auto_pause" {
   description = "The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are 300 through 86400. Defaults to 300."
-  type = number
-  default = 300
+  type        = number
+  default     = 300
 }
 
 variable "timeout_action" {
   description = "RollbackCapacityChange or ForceApplyCapacityChange"
-  type = string
-  default = "RollbackCapacityChange"
+  type        = string
+  default     = "RollbackCapacityChange"
 }
 
 variable "enable_http_endpoint" {
-  type = bool
+  type    = bool
   default = true
 }
